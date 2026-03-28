@@ -13,10 +13,10 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -24,12 +24,15 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
 
-        resources.qrc
-
+        .gitignore
+        README.md
         database/schema.sql
         database/queries.sql
-        user.h user.cpp
 
+        resources.qrc
+        dialogs/charge_dialog.h dialogs/charge_dialog.cpp dialogs/charge_dialog.ui
+        includes/user.h includes/user.cpp
+        includes/utils.h includes/utils.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Kis APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

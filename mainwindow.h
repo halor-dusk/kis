@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "user.h"
+#include "includes/user.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,8 +26,17 @@ private slots:
 
     void on_loginButton_clicked();
 
+    void on_charge_clicked();
+
+    void on_quit_clicked();
+
 private:
     User *user;
     Ui::MainWindow *ui;
+
+    bool connectDb(const QString &dbHost, const QString &dbName, const QString& dbUser, const QString &dbPassword);
+    User *login(const QString &id, const QString &password);
+
+    void updateBalanceLabel();
 };
 #endif // MAINWINDOW_H
